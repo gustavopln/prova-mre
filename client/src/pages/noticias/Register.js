@@ -15,7 +15,7 @@ const Register = () => {
     }
 
     const handleClickButton = () => {
-        Axios.post("http://localhost:3001/regNoticia", {
+        Axios.post("http://localhost:3000/regNoticia", {
             titulo: values.titulo,
             descricao: values.descricao,
         }).then(() => {

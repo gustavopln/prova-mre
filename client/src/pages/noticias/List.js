@@ -9,7 +9,7 @@ const List = () => {
     const [listNoticias, setListNoticias] = useState();
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/getNoticias").then((response) => {            
+        Axios.get("http://localhost:3000/getNoticias").then((response) => {            
             setListNoticias(response.data);
         })
     }, []);

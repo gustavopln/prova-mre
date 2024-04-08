@@ -59,7 +59,7 @@ app.put("/editNoticia", (req, res) => {
 /************************************/
 app.delete("/deleteNoticia/:id", (req, res) => {
     const { id } = req.params;
-    console.log('Id: ' + id)
+        
     let sql = "DELETE FROM tb_noticia WHERE id = ?";
 
     db.query(sql, [id], (err, result) =>{
