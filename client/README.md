@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Estutura de arquivos e pastas criadas
+A estrutura criada ainda não atende ao ideal, devido a brevidade utilizei dessa forma, mas pode ficar mais organizado principalmente a parte dos components.
+Dentro de pages ficou a parte de Listagem e Cadastro das Notícias e a consulta do CEP que pode virar um componente para ser melhor utilizado em outras partes do sistema.
+A parte de estilização ficou em styles e em templates um default e outra para as páginas.
+
+## Subindo o frontend localmente basta usar o npm ou yarn conforme abaixo
+```bash
+npm start ou yarn start
+```
+
+## Adicionado um dockerfile
+```bash
+docker build -t frontend . 
+```
+
+```bash
+docker run -p 80:80 frontend
+```
+
+## Outra forma de utilizar o dockerfile para subir o frontend dockerizado
+```bash
+docker-compose up -d frontend ou docker-compose up -d, dessa forma irá subir os containers de frontend, backend e do mysql
+```
+
+## Bibliotecas adicionadas
+axios react-router-dom @material-ui/core
+ 
