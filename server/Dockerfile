@@ -1,13 +1,15 @@
-FROM node:alpine 
+FROM node:20-alpine 
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
+
+RUN npm config set strict-ssl=false
 
 RUN npm install
 
-COPY . ./
+COPY . .
 
-EXPOSE 3000
+EXPOSE 3333
 
 CMD ["npm", "start"]

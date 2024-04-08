@@ -31,7 +31,7 @@ export default function FormDialog(props) {
   };
 
   const handleEditNoticia = () => {
-    Axios.put("http://localhost:3000/editNoticia", {
+    Axios.put("http://localhost:3333/editNoticia", {
       id: editValues.id,
       titulo: editValues.titulo,
       descricao: editValues.descricao,      
@@ -52,7 +52,7 @@ export default function FormDialog(props) {
   };
 
   const handleDeleteNoticia = () => {
-    Axios.delete(`http://localhost:3000/deleteNoticia/${editValues.id}`).then(() => {
+    Axios.delete(`http://localhost:3333/deleteNoticia/${editValues.id}`).then(() => {
       props.setListNoticias(
         props.listNoticias.filter((value) => {
           return value.id !== editValues.id;

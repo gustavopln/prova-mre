@@ -4,13 +4,15 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: yourpassword
       MYSQL_DATABASE: prova
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
     ports:
       - 3307:3306
+    networks:
+      - app-network
 
   frontend:
     build:
@@ -23,18 +25,26 @@ services:
       - 80:80
     depends_on:
       - backend
+    networks:
+      - app-network
 
   backend:
     build:
       context: ./server
       dockerfile: Dockerfile
     volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./server:/app
     ports:
-      - 3000:3000
+      - 3333:3333
     depends_on:
       - mysql
+    networks:
+      - app-network
 
 volumes:
   mysql_data:
+
+
+networks:
+  app-network:
+    driver: bridge

@@ -8,7 +8,7 @@ const db = mysql.createPool({
     user: "root",
     password: "yourpassword",
     database: "prova",
-    port: 3307,
+    port: 3306,
 });
 
 app.use(cors());
@@ -69,6 +69,6 @@ app.delete("/deleteNoticia/:id", (req, res) => {
 })
 
 
-app.listen(3001, () => {
+app.listen(3333, () => {
     console.log("Rodando servidor");
 });
