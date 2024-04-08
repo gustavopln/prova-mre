@@ -13,7 +13,7 @@ const Home = () =>{
           </li>
           <li className='home-li'>
             <Link to="/noticias/add">Cadastrar Notícias</Link>
-          </li>
+          </li>          
         </ul>
       </nav>
     </div>

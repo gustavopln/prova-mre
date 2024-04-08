@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import axios from 'axios'
+import Axios from 'axios';
+import ListaNoticias from './List';
 
 const Register = () => {
     const [values, setValues] = useState();
+    const [listNoticias, setListNoticias] = useState();
 
     const handleChangeValues = (value) => {
         setValues((prevValue) => ({
@@ -13,10 +15,21 @@ const Register = () => {
     }
 
     const handleClickButton = () => {
-        console.log(values)
-    }
+        Axios.post("http://localhost:3001/regNoticia", {
+            titulo: values.titulo,
+            descricao: values.descricao,
+        }).then(() => {
+            setListNoticias([
+                ...listNoticias,
+                {
+                    titulo: values.titulo,
+                    descricao: values.descricao,
+                },
+            ]);
+        });
+    };
 
-    return (        
+    return (
         <div className="register-container background">
             <h1 className="register-title background">Cadastro de Notícias</h1>
             <form className="background">
@@ -42,9 +55,11 @@ const Register = () => {
                     onClick={() => {
                     handleClickButton()
                 }}>Cadastrar</button>
-            </form>
+            </form>            
+            <ListaNoticias></ListaNoticias>
             <Link to="/">retornar a página inicial</Link>
-        </div>
+        </div> 
+        
     )
 }
 

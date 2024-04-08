@@ -61,3 +61,8 @@
 .home-li {
     padding: 5px;
 }
+
+.noticias-card {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}

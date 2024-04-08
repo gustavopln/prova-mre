@@ -12,6 +12,7 @@ import './styles/App.css';
 
 import Home from './pages/Home'
 import CadastroNoticias from './pages/noticias/Register';
+import ListaNoticias from './pages/noticias/List';
 import ConsultaCep from './pages/cep/consultaCep';
 
 const App = () =>  {
@@ -20,6 +21,9 @@ const App = () =>  {
       <TemplateDefault>
         <Routes>
           <Route path="/noticias/add" element={<TemplatePage Component={CadastroNoticias} />} /> 
+        </Routes>
+        <Routes>
+          <Route path="/noticias" element={<TemplatePage Component={ListaNoticias} />} /> 
         </Routes>
         <Routes>
           <Route path="/cep" element={<TemplatePage Component={ConsultaCep} />} /> 
